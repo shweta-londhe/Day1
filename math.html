@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Utility</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:400px;
+            text-align:center;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        input, select, button{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+        }
+
+        #result{
+            margin-top:20px;
+            font-size:20px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Math Utility</h2>
+
+    <input type="number" id="num1" placeholder="Enter First Number">
+
+    <input type="number" id="num2" placeholder="Enter Second Number">
+
+    <select id="operation">
+        <option value="add">Addition</option>
+        <option value="sub">Subtraction</option>
+        <option value="mul">Multiplication</option>
+        <option value="div">Division</option>
+        <option value="square">Square</option>
+        <option value="cube">Cube</option>
+        <option value="factorial">Factorial</option>
+    </select>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function factorial(n){
+    let fact = 1;
+
+    for(let i = 1; i <= n; i++){
+        fact = fact * i;
+    }
+
+    return fact;
+}
+
+function calculate(){
+
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+
+    let op = document.getElementById("operation").value;
+
+    let result;
+
+    if(op === "add"){
+        result = num1 + num2;
+    }
+    else if(op === "sub"){
+        result = num1 - num2;
+    }
+    else if(op === "mul"){
+        result = num1 * num2;
+    }
+    else if(op === "div"){
+        result = num1 / num2;
+    }
+    else if(op === "square"){
+        result = num1 * num1;
+    }
+    else if(op === "cube"){
+        result = num1 * num1 * num1;
+    }
+    else if(op === "factorial"){
+        result = factorial(num1);
+    }
+
+    document.getElementById("result").innerHTML =
+    "Result = " + result;
+}
+
+</script>
+
+</body>
+</html>
